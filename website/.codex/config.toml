@@ -1,0 +1,3 @@
+[mcp_servers.ios-simulator]
+command = "bunx"
+args = ["ios-simulator-mcp"]

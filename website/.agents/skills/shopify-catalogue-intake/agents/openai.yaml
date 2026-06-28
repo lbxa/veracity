@@ -1,0 +1,4 @@
+interface:
+  display_name: "Shopify Catalogue Intake"
+  short_description: "Count and qualify candidate Shopify merchant catalogues."
+  default_prompt: "Use $shopify-catalogue-intake to count candidate Shopify catalogues, probe hidden storefront endpoints when needed, and return an onboarding-ready summary."

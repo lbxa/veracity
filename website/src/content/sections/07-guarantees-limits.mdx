@@ -1,0 +1,23 @@
+---
+order: 7
+title: "Guarantees And Limits"
+---
+
+The paper includes a collusion-resistance argument for randomly selected odd-number juries. If a pool of $N$ jurors contains $k$ colluders and the system draws a panel of size $n = 2m + 1$, the probability that colluders control the majority falls exponentially in $n$, assuming the dishonest fraction is below one half.
+
+<FigurePlaceholder
+  eyebrow="Figure 5"
+  title="Collusion probability declines as jury selection ratio and panel size rise across different corruption levels."
+  caption="Figure 5. Collusion probability (on a log-scale) as a function of jury selection ratio (n/N) for varying population sizes and corruption levels. The three panels show results for populations of N = 100, 1,000, and 10,000 individuals, each with different percentages of unfaithful jurors (k/N = 5%, 10%, 20%, 30%)."
+  size="wide"
+/>
+
+The appendix also analyzes juror capacity. If challenges arrive at rate $\lambda$, panels require $n$ jurors, each case takes expected active time $h$, and each juror supplies active time $a$, then the minimum pool size scales as:
+
+$$
+N_{\min} = \left\lceil \frac{\lambda n h}{a} \right\rceil
+$$
+
+This is useful because it turns scale into an operational planning problem: the needed juror pool grows with dispute volume and effort per case, and shrinks as available juror time increases.
+
+The limits are equally important. The model must still address creator adoption, integration into existing platforms, subjective and evolving claims, expert domains, concentration of power, bias in community consensus, appeals, privacy, and the danger that an unchallenged claim is mistaken for a proven one.

@@ -1,0 +1,37 @@
+---
+order: 4
+title: "Mechanics"
+---
+
+The content-trust process begins when a creator publishes a claim and stakes a veracity bond. During the challenge period, a challenger can dispute that claim only by staking a counter-veracity bond of the same value. Equal stakes are central to the mechanism because they prevent the jury from being economically tilted toward one side before evaluating the evidence.
+
+<FigurePlaceholder
+  eyebrow="Figure 2"
+  title="Challenger writes a challenge and deposits a counter-veracity bond against pending content."
+  caption="Figure 2. Challengers can deposit a counter-veracity bond immediately after writing the challenge."
+/>
+
+If a challenge proceeds, an odd-numbered jury is selected from a larger pool of eligible jurors. Jurors evaluate the evidence, vote for either the creator or the challenger, and submit written assessments. Once the verdict is finalized, the losing bond is redistributed.
+
+<FigurePlaceholder
+  eyebrow="Figure 3"
+  title="The losing bond flows to the winning party, active jurors, and the framework."
+  caption="Figure 3. A fixed percentage of the losing bond (VB or CVB) is distributed to the jury and the winning party."
+/>
+
+Juror quality is checked after the contest. Independent juror assessments are randomly assigned to selected viewers who do not have a conflict of interest. Their evaluations feed the juror reputation system and help identify low-effort or malicious participation.
+
+<FigurePlaceholder
+  eyebrow="Figure 4"
+  title="Juror assessments are reviewed by randomly selected viewers and used to update juror reputations."
+  caption="Figure 4. Juror evaluations are randomly assigned to a selected number of viewers who do not have a conflict of interest with that contest."
+/>
+
+The framework also supports sequential challenges. If multiple challengers contest the same content, only one proceeds at a time in randomized order. If the current challenger succeeds, remaining challenges are dismissed. If the challenge fails, the next challenger proceeds.
+
+<FigurePlaceholder
+  eyebrow="Figure 6"
+  title="A randomized challenge queue limits monopolization while inactive jurors are substituted by alternates."
+  caption="Figure 6. During game turns, if a challenger loses their contest, a new one will be selected at random. Similarly, if any jurors are inactive during the deliberation period they will be substituted by the next qualified candidate."
+  size="wide"
+/>
