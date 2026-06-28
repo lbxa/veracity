@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "veracity",
+  "compatibility_date": "2026-06-28",
+  "workers_dev": true,
+  "routes": [
+    {
+      "pattern": "veracity.lbxa.net",
+      "custom_domain": true
+    }
+  ],
+  "assets": {
+    "directory": "./dist",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}
