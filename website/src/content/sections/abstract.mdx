@@ -3,10 +3,17 @@ order: 1
 slug: abstract
 ---
 
-This paper proposes an incentive-driven and decentralized approach to verifying digital content at scale. Instead of rewarding content only for engagement, the framework introduces financial and social incentives for truth-seeking: creators stake collateral on factual claims, challengers stake matching collateral to contest them, and jurors are rewarded for careful evidence review. The result is an exploratory model for making content trust a property of the information market itself.
+import sysFullFlow from "../../assets/images/paper/sys-full-flow.svg?url";
 
-<FigurePlaceholder
-  eyebrow="Mechanism preview"
-  title="Claims become contestable commitments backed by veracity bonds, counter-bonds, juries, reputation, identity, and provenance."
-  caption="Landing-page placeholder for the paper's incentive loop. Official paper images will replace this slot."
+This paper proposes an incentive-driven and decentralized approach to verifying digital content at scale. Instead of rewarding content only for engagement, the framework introduces financial and social incentives for truth-seeking: creators stake collateral on factual claims, challengers stake matching collateral to contest them, and jurors are rewarded for careful evidence review. The result is an exploratory model for <Highlight>making content trust a property of the information market itself</Highlight>.
+
+<Image
+  src={sysFullFlow}
+  alt="Flow diagram showing a creator and challenger staking bonds, a jury resolving the contest, and the losing bond being distributed to the winner, jurors, and framework."
+  caption="Mechanism preview. A losing veracity bond or counter-veracity bond is distributed to the winning party, participating jurors, and the framework."
+  size="wide"
+  width={881}
+  height={1231}
+  loading="eager"
+  fetchpriority="high"
 />

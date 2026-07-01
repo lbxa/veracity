@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import { Image as AstroImage } from "astro:assets";
-import FigurePlaceholder from "../components/FigurePlaceholder.astro";
+import Highlight from "../components/Highlight.astro";
 import Image from "../components/Image.astro";
 import ImageTwoUp from "../components/ImageTwoUp.astro";
 import pwcLogo from "../assets/images/logos/pwc-logo.webp";
@@ -19,12 +19,10 @@ const authors = [
   { name: "Eric Tze Kuan Lim", affiliation: "UNSW" },
   { name: "Tom Pagram", affiliation: "PwC" },
 ];
-const mdxComponents = { FigurePlaceholder, Image, ImageTwoUp };
+const mdxComponents = { Highlight, Image, ImageTwoUp };
 
 const artifactUrls = {
-  paper: "/files/content-trust-paper.pdf",
   arxiv: "https://arxiv.org/abs/2507.09972",
-  doi: "https://doi.org/10.48550/arXiv.2507.09972",
 } as const;
 
 const opensArtifactInNewTab = (href: string): boolean =>
@@ -33,9 +31,7 @@ const opensArtifactInNewTab = (href: string): boolean =>
 type ArtifactEntry = { label: string; href: string } | { label: string; muted: true };
 
 const artifactButtons: ArtifactEntry[] = [
-  { label: "Paper", href: artifactUrls.paper },
   { label: "arXiv", href: artifactUrls.arxiv },
-  { label: "DOI", href: artifactUrls.doi },
   { label: "BibTeX", href: "#citation" },
 ];
 
@@ -200,7 +196,7 @@ const tableOfContentsItems = renderedSections
         <div class="mx-auto max-w-3xl px-3 md:px-1">
           <div class="flex flex-col space-y-12">
             <section id={abstractAnchorId}>
-              <div class="prose prose-stone mx-auto max-w-lg text-center text-sm leading-relaxed">
+              <div class="prose prose-stone mx-auto max-w-2xl text-center text-sm leading-relaxed">
                 <AbstractContent components={mdxComponents} />
               </div>
             </section>
