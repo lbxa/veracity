@@ -3,21 +3,52 @@ order: 7
 title: "Guarantees And Limits"
 ---
 
-The paper includes a collusion-resistance argument for randomly selected odd-number juries. If a pool of $N$ jurors contains $k$ colluders and the system draws a panel of size $n = 2m + 1$, the probability that colluders control the majority falls exponentially in $n$, assuming the dishonest fraction is below one half.
+import jurorCollusionPlots from "../../assets/images/paper/juror-collusion-plots.svg?url";
 
-<FigurePlaceholder
-  eyebrow="Figure 5"
-  title="Collusion probability declines as jury selection ratio and panel size rise across different corruption levels."
-  caption="Figure 5. Collusion probability (on a log-scale) as a function of jury selection ratio (n/N) for varying population sizes and corruption levels. The three panels show results for populations of N = 100, 1,000, and 10,000 individuals, each with different percentages of unfaithful jurors (k/N = 5%, 10%, 20%, 30%)."
-  size="wide"
+The paper includes a collusion-resistance argument for randomly selected odd-number juries. If a pool of $N$ jurors contains $k$ colluders, define $p = k/N$ and draw a panel of size $n = 2m + 1$. The panel reaches a verdict when at least $t = m + 1$ jurors agree. With $X \sim \mathrm{Hypergeometric}(N,k,n)$, Hoeffding's inequality gives
+
+$$
+P(X \ge t) \le \exp\left[-2n\left(\frac{1}{2} - p\right)^2\right].
+$$
+
+The bound is useful because the probability of a successful collusion attempt falls exponentially as panel size $n$ increases, provided the dishonest share remains below one half.
+
+<Image
+  src={jurorCollusionPlots}
+  alt="Three-panel plot showing collusion probability on a logarithmic scale for juror populations of 100, 1,000, and 10,000 across corruption ratios from 5 percent to 30 percent."
+  caption="Collusion probability on a log scale as a function of jury selection ratio for population sizes of N = 100, 1,000, and 10,000, with corruption ratios from 5 percent to 30 percent."
+  size="text"
+  width={857}
+  height={280}
+  loadOnView
 />
 
-The appendix also analyzes juror capacity. If challenges arrive at rate $\lambda$, panels require $n$ jurors, each case takes expected active time $h$, and each juror supplies active time $a$, then the minimum pool size scales as:
+The numerical appendix turns that theorem into operating guidance. For a 10 percent corruption level, the exact hypergeometric tail probability is about $2.92 \times 10^{-4}$ at $n = 11$, about $1.30 \times 10^{-6}$ at $n = 21$, and below $10^{-10}$ by $n = 81$. For a 20 percent corruption level, a panel of $n = 31$ keeps the probability below $10^{-4}$ in the table.
+
+The appendix also analyzes juror capacity. If challenges arrive at rate $\lambda$, panels require $n$ jurors, each case takes expected active time $h$, and each juror supplies active time $a$, then the minimum pool size is
 
 $$
-N_{\min} = \left\lceil \frac{\lambda n h}{a} \right\rceil
+N_{\min} = \left\lceil \frac{\lambda n h}{a} \right\rceil.
 $$
 
-This is useful because it turns scale into an operational planning problem: the needed juror pool grows with dispute volume and effort per case, and shrinks as available juror time increases.
+This turns scale into an operational planning problem: the needed juror pool grows with dispute volume and effort per case, and shrinks as available juror time increases.
 
-The limits are equally important. The model must still address creator adoption, integration into existing platforms, subjective and evolving claims, expert domains, concentration of power, bias in community consensus, appeals, privacy, and the danger that an unchallenged claim is mistaken for a proven one.
+<div class="not-prose my-8 grid gap-3 md:grid-cols-3">
+  <div class="rounded-lg border border-stone-300 bg-white p-4">
+    <p class="text-xs font-semibold uppercase tracking-wide text-stone-500">Small community</p>
+    <p class="mt-2 text-2xl font-light text-stone-950">33</p>
+    <p class="mt-1 text-sm leading-relaxed text-stone-600">Required jurors under the appendix's standard staffing scenario.</p>
+  </div>
+  <div class="rounded-lg border border-stone-300 bg-white p-4">
+    <p class="text-xs font-semibold uppercase tracking-wide text-stone-500">Reddit scale</p>
+    <p class="mt-2 text-2xl font-light text-stone-950">840</p>
+    <p class="mt-1 text-sm leading-relaxed text-stone-600">Required jurors in the same standard scenario.</p>
+  </div>
+  <div class="rounded-lg border border-stone-300 bg-white p-4">
+    <p class="text-xs font-semibold uppercase tracking-wide text-stone-500">Largest networks</p>
+    <p class="mt-2 text-2xl font-light text-stone-950">10^6</p>
+    <p class="mt-1 text-sm leading-relaxed text-stone-600">The appendix's largest estimates remain below one tenth of one percent of daily active users.</p>
+  </div>
+</div>
+
+The limits are equally important. The model must still address creator adoption, integration into existing platforms, subjective and evolving claims, expert domains, concentration of power, bias in community consensus, appeals, privacy, and <Highlight>the danger that an unchallenged claim is mistaken for a proven one</Highlight>.

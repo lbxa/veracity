@@ -12,4 +12,14 @@
   .prose h3 {
     @apply font-light;
   }
+
+  .prose mark.important-highlight {
+    display: inline;
+    border-radius: 0.2rem;
+    background-color: rgba(186, 230, 253, 0.68);
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    color: inherit;
+    padding: 0.04em 0.14em;
+  }
 }

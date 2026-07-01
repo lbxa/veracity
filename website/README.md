@@ -21,3 +21,9 @@ bun astro check
 - `public/files/content-trust-paper.pdf` is the linked paper PDF.
 
 When replacing placeholders with official images, keep imported image assets in `src/assets/images/` and use the local Astro image optimization skill to generate WebP files and ThumbHash placeholders.
+
+## Changelog
+
+### 2026-07-01
+
+- Important prose callouts use the MDX `Highlight` component and should remain sparse so only thesis-level ideas receive the baby blue treatment.

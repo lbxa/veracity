@@ -3,14 +3,29 @@ order: 2
 title: "Core Idea"
 ---
 
+import sysCreator from "../../assets/images/paper/sys-creator.svg?url";
+import sysChallenger from "../../assets/images/paper/sys-challenger.svg?url";
+
 The proposed framework adds "trust" to the reward function for published content. A creator who makes a factual claim can stake a veracity bond, signaling confidence in the claim and accepting financial risk if the claim is later shown to be false. A reader who believes the content is inaccurate can become a challenger by staking an equal counter-veracity bond and submitting evidence.
 
-A jury then evaluates the creator's evidence and the challenger&apos;s counterclaim. The losing side forfeits its bond, and the forfeited value is distributed to the winning party, participating jurors, and the protocol. This turns fact-checking from a purely reactive annotation layer into a contestable market mechanism.
+A jury then evaluates the creator's evidence and the challenger&apos;s counterclaim. The losing side forfeits its bond, and the forfeited value is distributed to the winning party, participating jurors, and the protocol. This turns fact-checking from a purely reactive annotation layer into a <Highlight>contestable market mechanism</Highlight>.
 
-<FigurePlaceholder
-  eyebrow="Figure 1"
-  title="Creator deposits a veracity bond after writing content."
-  caption="Figure 1. Creators can deposit a veracity bond immediately after writing the content."
+<ImageTwoUp
+  left={{
+    src: sysCreator,
+    alt: "System diagram showing a creator writing content, depositing a veracity bond, and publishing pending content.",
+    caption: "Creators can deposit a veracity bond immediately after writing content.",
+    width: 541,
+    height: 365,
+  }}
+  right={{
+    src: sysChallenger,
+    alt: "System diagram showing a challenger writing a challenge and depositing a counter-veracity bond against pending content.",
+    caption: "Challengers can deposit a counter-veracity bond immediately after writing a challenge.",
+    width: 541,
+    height: 394,
+  }}
+  caption="The mechanism makes claims contestable commitments: creators stake veracity bonds, while challengers stake matching counter-veracity bonds."
 />
 
 The model is intentionally exploratory. Its value is not that financial collateral alone can define truth, but that carefully designed incentives can make truth-seeking a visible, rewarded, and accountable activity inside digital media systems.

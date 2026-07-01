@@ -3,35 +3,47 @@ order: 4
 title: "Mechanics"
 ---
 
-The content-trust process begins when a creator publishes a claim and stakes a veracity bond. During the challenge period, a challenger can dispute that claim only by staking a counter-veracity bond of the same value. Equal stakes are central to the mechanism because they prevent the jury from being economically tilted toward one side before evaluating the evidence.
+import sysFullFlow from "../../assets/images/paper/sys-full-flow.svg?url";
+import sysJurorEval from "../../assets/images/paper/sys-juror-eval.svg?url";
+import sysGameTurns from "../../assets/images/paper/sys-game-turns.svg?url";
 
-<FigurePlaceholder
-  eyebrow="Figure 2"
-  title="Challenger writes a challenge and deposits a counter-veracity bond against pending content."
-  caption="Figure 2. Challengers can deposit a counter-veracity bond immediately after writing the challenge."
-/>
+The content-trust process begins when a creator publishes a claim and stakes a veracity bond. During the challenge period, a challenger can dispute that claim only by staking a counter-veracity bond of the same value. <Highlight>Equal stakes are central to the mechanism</Highlight> because they prevent the jury from being economically tilted toward one side before evaluating the evidence.
 
-If a challenge proceeds, an odd-numbered jury is selected from a larger pool of eligible jurors. Jurors evaluate the evidence, vote for either the creator or the challenger, and submit written assessments. Once the verdict is finalized, the losing bond is redistributed.
+If a challenge proceeds, an odd-numbered jury is selected from a larger pool of eligible jurors. The odd panel avoids deadlock by setting
 
-<FigurePlaceholder
-  eyebrow="Figure 3"
-  title="The losing bond flows to the winning party, active jurors, and the framework."
-  caption="Figure 3. A fixed percentage of the losing bond (VB or CVB) is distributed to the jury and the winning party."
+$$
+n = 2m + 1,\qquad t = m + 1 = \frac{n + 1}{2},
+$$
+
+where $n$ is the panel size and $t$ is the strict majority threshold. Jurors evaluate the evidence, vote for either the creator or the challenger, and submit written assessments. Once the verdict is finalized, the losing bond is redistributed.
+
+<Image
+  src={sysFullFlow}
+  alt="Flow diagram showing creator and challenger bonds moving through a jury resolution and the losing bond being paid to the winner, jurors, and framework."
+  caption="A fixed percentage of the losing bond, whether the veracity bond or counter-veracity bond, is distributed to the jury and the winning party."
+  size="wide"
+  width={881}
+  height={1231}
 />
 
 Juror quality is checked after the contest. Independent juror assessments are randomly assigned to selected viewers who do not have a conflict of interest. Their evaluations feed the juror reputation system and help identify low-effort or malicious participation.
 
-<FigurePlaceholder
-  eyebrow="Figure 4"
-  title="Juror assessments are reviewed by randomly selected viewers and used to update juror reputations."
-  caption="Figure 4. Juror evaluations are randomly assigned to a selected number of viewers who do not have a conflict of interest with that contest."
+<Image
+  src={sysJurorEval}
+  alt="Flow diagram showing juror evaluations being randomly assigned to viewers without conflicts of interest."
+  caption="Juror evaluations are randomly assigned to selected viewers who do not have a conflict of interest with that contest."
+  size="text"
+  width={1519}
+  height={426}
 />
 
 The framework also supports sequential challenges. If multiple challengers contest the same content, only one proceeds at a time in randomized order. If the current challenger succeeds, remaining challenges are dismissed. If the challenge fails, the next challenger proceeds.
 
-<FigurePlaceholder
-  eyebrow="Figure 6"
-  title="A randomized challenge queue limits monopolization while inactive jurors are substituted by alternates."
-  caption="Figure 6. During game turns, if a challenger loses their contest, a new one will be selected at random. Similarly, if any jurors are inactive during the deliberation period they will be substituted by the next qualified candidate."
+<Image
+  src={sysGameTurns}
+  alt="Turn-based challenge flow showing challengers queued at random and inactive jurors substituted by qualified alternates."
+  caption="During game turns, if a challenger loses their contest, a new challenger is selected at random. Inactive jurors are substituted by the next qualified candidate."
   size="wide"
+  width={881}
+  height={912}
 />
